@@ -5,7 +5,7 @@
 .c9
 
 #node_modules
-.node_modules
+node_modules
 
 #Other
 readme-dev.md
