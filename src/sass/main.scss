@@ -1,0 +1,65 @@
+//Import Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+//Import your deault font
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+//Variables
+$font_types: ( primary: Montserrat );
+
+body {
+  font-family: map_get($font_types, primary);
+
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    background-image: url(../i/theme/preloader.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.navbar #logo {
+  display: flex;
+  flex-flow: row nowrap; /* required */
+  background-color: #ff5910;
+  padding: 15px 46px;
+}
+
+
+.navbar .logo-box {
+  //float: left;
+  //top: 0;
+  //position: absolute;
+  //left: 15px;
+  display: flex;
+  flex-flow: row nowrap; /* required */
+  background-color: #ff5910;
+  padding: 15px 46px;
+}
+
+.navbar .navbar-brand {
+  position: relative;
+}
+
+.navbar .main-logo {
+  display: block;
+  margin: 0 auto;
+}
+
+.navbar .navbar-brand P {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+
+.navbar  P.logo-slogan {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}

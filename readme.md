@@ -2,39 +2,41 @@
 ### Intro
 The idea behind this project is to build simple static websites quickly. Now you can setup a website in a few minutes rather than hours or days.\
 This project uses `Gulp` for compiling all `HTML`, `CSS` and `JavaScript` files into static output files in the `public` folder.\
-The `public` folder can be simply uploaded to your hosting provider or ISP. Although there are some prerequisites, the following instructions serve as a turorial and are aimed at beginners. It goes into the tiny details for setup and use. If you're a complete beginner and feel that any part of these instructions require more explination, please let me know at richardvbrbarry@gmail.com.
-
-###Prerequisites
-Knowledge of the following are required to work with this project:
-* HTML
-* CSS/Sass/Bootstrap
-* JavaScript
+The `public` folder can be simply uploaded to your hosting provider. 
 
 ###Development dependencies
 The project requires the use of `NodeJS` and `NPM` which is included in the `NodeJS` application. Additionaly we will install Gulp and various Gulp plugins.  
 * **NodeJS:** Because NodeJS wil save the world.
 * **Gulp:** Our awesome script builder to simplify and organise our work. 
 * **Gulp-imagemin:** For compressing image assets.
-* **Gulp-uglify:** For minifying our JavaScript files.
+* **gulp-uglify-es:** For minifying our JavaScript files. Use gulp-uglify-es and NOT gulp-uglify, because -es supports ES6 syntax. 
 * **Gulp-sass:** For creating our CSS output using SASS.
 * **Gulp-concat:** For concatinating all our JavaScript files. This means we can write multiple files for smaller functions and join them all together into `main.js` which will be loaded into the page.
 * **Gulp-template-html:** For very basic templating to not repeat all our code.    
 
 ###Setup and install
-* Create a folder for your project in your working directory.
-    * Example: `C:\Projects\MyWebsite-1`
-* In your working directory create the following folders: 
-    * `src` This is where all our working files will be stored.
-    * `public` This is where we will compile the output ready to upload to production or live server. 
-    * Create a `gulpfile.js` in your root directory (`C:\Projects\MyWebsite-1`).
-    * Your directory should look like this:
+* Clone the project from into your working directory: https://github.com/Mo0nrocket/webstarter-gulp.git
+* Install the rest of the `Gulp` plugins as dev dependencies.
+```sh
+npm i --save-dev gulp-imagemin
+npm i --save-dev gulp-uglify-es
+npm i --save-dev gulp-sass
+npm i --save-dev gulp-concat
+npm i --save-dev gulp-template-html
+npm i --save-dev bootstrap
+```
+* All `Gulp` processes have already been cofigured `gulpfile.js`.
+* The folder structure is as follows: 
 ```bash
-C:
-└───Projects
-    └───Website-1
-        ├───public
-        └───src
-        ├───gulpfile.js
+└───YourProject
+    ├───public
+    ├───src
+        └───content
+        └───js
+        └───sass
+        └───templates
+    ├───gulpfile.js
+    ├───package.json
 ``` 
 * Install NodeJS: To install `NodeJS` visit: https://nodejs.org/en/download/
     * Once installed, open your favorite command line editor such as CMD, GitBash or Terminal.
