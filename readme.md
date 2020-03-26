@@ -4,7 +4,7 @@ The idea behind this project is to build simple static websites quickly. Now you
 This project uses `Gulp` for compiling all `HTML`, `CSS` and `JavaScript` files into static output files in the `public` folder.\
 The `public` folder can be simply uploaded to your hosting provider. 
 
-###Development dependencies
+### Development dependencies
 The project requires the use of `NodeJS` and `NPM` which is included in the `NodeJS` application. Additionaly we will install Gulp and various Gulp plugins.  
 * **NodeJS:** Because NodeJS wil save the world.
 * **Gulp:** Our awesome script builder to simplify and organise our work. 
@@ -14,7 +14,7 @@ The project requires the use of `NodeJS` and `NPM` which is included in the `Nod
 * **Gulp-concat:** For concatinating all our JavaScript files. This means we can write multiple files for smaller functions and join them all together into `main.js` which will be loaded into the page.
 * **Gulp-template-html:** For very basic templating to not repeat all our code.    
 
-###Setup and install
+### Setup and install
 * Install NodeJS: To install `NodeJS` visit: https://nodejs.org/en/download/
 * Clone the project from into your working directory: https://github.com/Mo0nrocket/webstarter-gulp.git
 * Install the rest of the `Gulp` plugins as dev dependencies using npm.
@@ -40,7 +40,7 @@ npm i --save-dev bootstrap
     ├───package.json
 ``` 
 
-####Creating your first web page
+### Creating your first web page
 The `gulpfile.js` is already configured to run and create your index.html page. 
 
 It uses the template `src\templates/template.html` file to grab content from the `src\content` and generate your pages in the `public` folder. 
@@ -87,7 +87,7 @@ $ gulp
 ```
 You will now notice that in the `public` folder there is a new `index.html` file which has been compiled from the `template` and `content` files in the `src` folder.  
  
-####gulpfile.js explained
+### gulpfile.js explained
 The gulp compile functions can be run together or individually. The functions are explained below:
 ```javascript
 //Import all necessary packages
