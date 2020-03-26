@@ -87,6 +87,8 @@ $ gulp
 ```
 You will now notice that in the `public` folder there is a new `index.html` file which has been compiled from the `template` and `content` files in the `src` folder.  
  
+### Working with Sass
+The project uses `sass/bootstrap` for speeding up creation of templates. All `Bootstrap` variables can be overwritten in your `Sass` files customize UI and design elements. For a list of all Bootstrap variables see `\node_modules\bootstrap\scss\_variables.scss`.
 ### gulpfile.js explained
 The gulp compile functions can be run together or individually. The functions are explained below:
 ```javascript
