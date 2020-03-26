@@ -15,8 +15,9 @@ The project requires the use of `NodeJS` and `NPM` which is included in the `Nod
 * **Gulp-template-html:** For very basic templating to not repeat all our code.    
 
 ###Setup and install
+* Install NodeJS: To install `NodeJS` visit: https://nodejs.org/en/download/
 * Clone the project from into your working directory: https://github.com/Mo0nrocket/webstarter-gulp.git
-* Install the rest of the `Gulp` plugins as dev dependencies.
+* Install the rest of the `Gulp` plugins as dev dependencies using npm.
 ```sh
 npm i --save-dev gulp-imagemin
 npm i --save-dev gulp-uglify-es
@@ -38,53 +39,13 @@ npm i --save-dev bootstrap
     ├───gulpfile.js
     ├───package.json
 ``` 
-* Install NodeJS: To install `NodeJS` visit: https://nodejs.org/en/download/
-    * Once installed, open your favorite command line editor such as CMD, GitBash or Terminal.
-    * Navigate to your working directory by typing example: 
-```sh
-cd \Projects\MyWebsite-1
-```
-* Run the following command by typing in the terminal:
-```sh
-npm init -y
-```
-This will create a `package.json` file where all your NodeJs development packages will be stored.  
-```sh
-        ├───package.json
-``` 
-* Install `Gulp` ***globaly*** using NPM by typing the following:
-```sh
-$ npm i -g gulp
-```
-* Install `Gulp` ***locally*** as a dev dependency: 
-```sh
-$ npm i --save-dev gulp
-```
-This will create a new folder `node_modules` where all your node packages for your project will be installed. 
-```sh
-        ├───node_modules
-``` 
-* Install the rest of the `Gulp` plugins as dev dependencies.
-```sh
-npm i --save-dev gulp-imagemin
-npm i --save-dev gulp-uglify
-npm i --save-dev gulp-sass
-npm i --save-dev gulp-concat
-npm i --save-dev gulp-template-html
-```
 
 ####Creating your first web page
-We will create all of our web HTML pages in the `src` folder. We will also create a template using `gulp-template-html` to avoid repeating multiple pieces of code such as the navigation and footer. 
-In the `src` folder we will create two sub folders. One for storing our template and another for storing our content. 
-This templating plugin is very simple, and aimed at creating static pages without any logic or data. For more complex templating please feel free to use something more advance like Jade or Handlebars.
-In the `src` folder, create two new folders `template` and `content`. 
-```sh
-        └───src
-            └───content
-            └───templates
-``` 
-In the `src\templates` folder create a `template.html` file.
-We add our default HTML layout.
+The `gulpfile.js` is already configured to run and create your index.html page. 
+
+It uses the template `src\templates/template.html` file to grab content from the `src\content` and generate your pages in the `public` folder. 
+
+Template example:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +64,7 @@ We add our default HTML layout.
 </html>
 ```
 The `build` comments (example: `\<!--build:content-->`) in the template is where we will inject our content for each individual page. 
-Now in the `src\content` folder we create our `index.html` page with the content we would like to inject. 
+Now content in `src\content` folder will be injected into the various areas of the template where `build` comments match. 
 ```html
 <!-- build:title -->Homepage title<!-- /build:title -->
 <!-- build:header -->Welcome<!-- /build:header -->
@@ -111,28 +72,96 @@ Now in the `src\content` folder we create our `index.html` page with the content
 <p>My Homepage content here</a></p>
 <!-- /build:content -->
 ```
-Now we are finally ready to create our compiled output page which will be in the `public` folder. The `public` folder is the folder that will contain all our compiled and concatinated files, ready for deployment to the server. 
-To generate the compiled page we need to tell `Gulp` to do some work. 
-
-The `Gulp` build process is already created in `gulpfile.js`, all we need to do is run it. Open the terminal and type the following command:
+ 
+To generate the compiled pages we need to tell `Gulp` to do some work. 
+Open the terminal and run `gulp template`:
 ```shell script
-gulp template
+gulp
 ```
 You should receive the following similar response indicating that the template has been created: 
-```shell script
-[13:32:25] Using gulpfile ~\Projects\Website-1\gulpfile.js
-[13:32:25] Starting 'template'...
-[13:32:25] Finished 'template' after 17 ms
+```sh
+$ gulp
+[12:05:44] Using gulpfile ~\Projects\WebsiteName\gulpfile.js
+[12:12:20] Starting 'template'...
+[12:12:20] Finished 'template' after 16 ms
 ```
 You will now notice that in the `public` folder there is a new `index.html` file which has been compiled from the `template` and `content` files in the `src` folder.  
  
-####Adding CSS using Sass
-Because of the variables usage in `Sass` we will save a lot of time when duplicating this project for another purpose or website. 
-We can for example change the theme colors, font etc all in our `Sass` variables and therefore save a lot of time. We will also use `Bootstrap` to speed up our `CSS` development and save time on responsive layouts.
-Let's start by creating our `Sass` folder that will contain all our `.scss` files.
-```sh
-        └───src
-            └───content
-            └───sass
-            └───templates
-``` 
+####gulpfile.js explained
+The gulp compile functions can be run together or individually. The functions are explained below:
+```javascript
+//Import all necessary packages
+const   gulp = require('gulp'),
+        template = require('gulp-template-html'),
+        sass = require('gulp-sass'),
+        uglify = require('gulp-uglify-es').default,
+        concat = require('gulp-concat'),
+        imagemin = require('gulp-imagemin');
+
+/*GULP TOP LEVEL FUNCTIONS EXPLAINED
+    gulp.task = Define task
+    gulp.src = Point to files to use
+    gulp.dest = Points to folder to output
+    gulp.watch = Watch files and folders for changes
+ */
+
+//LOG message to console to test if Gulp is running
+gulp.task('message', async () => {
+    return console.log('Gulp is running...');
+});
+
+// Optimize Images
+//syntax for including sub folders is **, for one folder without sub folders is *
+gulp.task('imagemin', async () =>
+    gulp.src('src/i/**')
+        .pipe(imagemin())
+        .pipe(gulp.dest('public/i'))
+);
+
+//TEMPLATE COMPILER: This function will create the corresponding pages from all template files.
+gulp.task('template', async () =>
+    gulp.src('src/content/*.html')
+        .pipe(template('src/templates/template.html'))
+        .pipe(gulp.dest('public'))
+);
+
+//SASS COMPILER: This function will compile and concatinate all .sass files into one CSS file \public\c\main.css
+gulp.task('sass', async () =>
+    gulp.src('src/sass/*.scss')
+        .pipe(concat('main.css'))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('public/c'))
+);
+
+// JAVASCRIPTS COMPILER: Concatinate all .js files into one main.js file
+gulp.task('scripts', () =>
+    gulp.src('src/j/*.js')
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/j'))
+);
+
+//Run all tasks manually
+gulp.task('default', gulp.series('message', 'imagemin', 'sass', 'scripts', 'template'));
+
+//OR
+
+//Runn all tasks automaticvally by Watching for changes in any of the files.
+gulp.task('watch', () => {
+    gulp.watch('src/i/**', gulp.series('imagemin')),
+    gulp.watch('src/sass/*.scss', gulp.series('sass')),
+    gulp.watch('src/j/*.js', gulp.series('scripts')),
+    gulp.watch('src/templates/template.html', gulp.series('template')),
+    gulp.watch('src/content/*.html', gulp.series('template'));
+});
+```
+To run all tasks at once use `gulp`, to run the defualt task:
+```sh 
+gulp
+```
+To run tasks individually use `gulp {task name}`:
+```sh 
+gulp sass
+```
+To `WATCH` tasks for changes use `gulp watch`. This will constantly run the default task in the background and update your files when you save to avoid having to manually run gulp tasks after every change.\
+Note that this doesn't work with imagemin. I still don't know why. if you know please contact me :) 

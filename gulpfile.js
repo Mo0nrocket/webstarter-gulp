@@ -1,3 +1,4 @@
+//Import all necessary packages
 const   gulp = require('gulp'),
         template = require('gulp-template-html'),
         sass = require('gulp-sass'),
@@ -5,7 +6,7 @@ const   gulp = require('gulp'),
         concat = require('gulp-concat'),
         imagemin = require('gulp-imagemin');
 
-/*GULP TOP LEVEL FUNCTIONS
+/*GULP TOP LEVEL FUNCTIONS EXPLAINED
     gulp.task = Define task
     gulp.src = Point to files to use
     gulp.dest = Points to folder to output
@@ -13,13 +14,12 @@ const   gulp = require('gulp'),
  */
 
 //LOG message to console to test if Gulp is running
-//NOTE: this functions runs but returns an error. Unless I add 'async', then it works. I still need to learn why...
 gulp.task('message', async () => {
     return console.log('Gulp is running...');
 });
 
 // Optimize Images
-//syntax for including sub folders is **
+//syntax for including sub folders is **, for one folder without sub folders is *
 gulp.task('imagemin', async () =>
     gulp.src('src/i/**')
         .pipe(imagemin())

@@ -7154,33 +7154,20 @@ body {
     background-position: center center; }
 
 .navbar #logo {
-  display: flex;
-  flex-flow: row nowrap;
-  /* required */
   background-color: #ff5910;
   padding: 15px 46px; }
 
-.navbar .logo-box {
-  display: flex;
-  flex-flow: row nowrap;
-  /* required */
-  background-color: #ff5910;
-  padding: 15px 46px; }
-
-.navbar .navbar-brand {
-  position: relative; }
-
-.navbar .main-logo {
+.navbar #logo img {
   display: block;
   margin: 0 auto; }
 
-.navbar .navbar-brand P {
+.navbar #logo p {
   font-size: 2.5rem;
   color: #ffffff;
   text-align: center;
   padding: 10px 0 0 0; }
 
-.navbar P.logo-slogan {
+.navbar #logo p:nth-child(3) {
   font-size: 1rem;
   padding: 0;
   margin: 0; }
