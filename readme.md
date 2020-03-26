@@ -75,11 +75,11 @@ Now content in `src\content` folder will be injected into the various areas of t
  
 To generate the compiled pages we need to tell `Gulp` to do some work. 
 Open the terminal and run `gulp template`:
-```shell script
-gulp
+```sh
+gulp template
 ```
 You should receive the following similar response indicating that the template has been created: 
-```sh
+```shell script
 $ gulp
 [12:05:44] Using gulpfile ~\Projects\WebsiteName\gulpfile.js
 [12:12:20] Starting 'template'...
