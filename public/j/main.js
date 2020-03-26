@@ -1,1 +1,1 @@
-"use strict";document.addEventListener("DOMContentLoaded",(function(){document.querySelector("#preloader").style.display="none"}),!1);let a="aaa";console.log(a);
+"use strict";document.addEventListener("DOMContentLoaded",(function(){document.querySelector("#preloader").style.display="none"}),!1);

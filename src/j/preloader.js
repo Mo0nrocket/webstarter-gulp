@@ -8,6 +8,3 @@
 document.addEventListener('DOMContentLoaded', function(){
     document.querySelector("#preloader").style.display="none";
 }, false);
-
-let a = 'aaa';
-console.log(a);
