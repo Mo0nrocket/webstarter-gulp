@@ -163,5 +163,8 @@ To run tasks individually use `gulp {task name}`:
 ```sh 
 gulp sass
 ```
-To `WATCH` tasks for changes use `gulp watch`. This will constantly run the default task in the background and update your files when you save to avoid having to manually run gulp tasks after every change.\
+To `WATCH` tasks for changes use `gulp watch`. This will constantly run the default task in the background and update your files when you save to avoid having to manually run gulp tasks after every change.
+```sh 
+gulp watch
+```
 Note that this doesn't work with imagemin. I still don't know why. if you know please contact me :) 
