@@ -34,15 +34,16 @@ gulp.task('template', async () =>
 );
 
 //SASS COMPILER: This function will compile and concatinate all .sass files into one CSS file \public\c\main.css
-gulp.task('sass', async () =>
+gulp.task('sass', () =>
     gulp.src('src/sass/*.scss')
         .pipe(concat('main.css'))
         .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(gulp.dest('public/c'))
 );
 
 // JAVASCRIPTS COMPILER: Concatinate all .js files into one main.js file
-gulp.task('scripts', () =>
+gulp.task('scripts', async () =>
     gulp.src('src/j/*.js')
         .pipe(concat('main.js'))
         .pipe(uglify())
