@@ -1,0 +1,24 @@
+//VARIABLES
+/* A collection of Bootstrap and Custom that can be edited to change the overall theme colors and sizes.
+Bootstrap variables are overwritten. To see a list of Bootstrap variables see node_modules/bootstrap/scss/_variables.scss */
+
+//BOOTSTRAP//
+
+
+//navbar header
+
+//CUSTOM variables
+
+$font_types:                        ( primary: Montserrat );
+$navbar-padding-y:                  2.5rem !default;
+$navbar-padding-x:                  5rem !default;
+
+.navbar-nav { position: relative; }
+.navbar-nav #logo {
+  background-color: #ff5910;
+  padding: 15px 40px;
+  position: absolute;
+  left: -259px;
+  top: -8px;
+  text-decoration: none;
+}
