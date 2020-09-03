@@ -29,7 +29,7 @@ gulp.task('imagemin', async () =>
 //TEMPLATE COMPILER: This function will create the corresponding pages from all template files.
 gulp.task('template', async () =>
     gulp.src('src/content/*.html')
-        .pipe(template('src/templates/template.html'))
+        .pipe(template('src/templates/template_flex.html'))
         .pipe(gulp.dest('public'))
 );
 
