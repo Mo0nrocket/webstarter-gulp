@@ -18,5 +18,7 @@
     "gulp-template-html": "^0.2.2",
     "gulp-uglify-es": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bl": "^1.2.3"
+  }
 }
