@@ -29,7 +29,7 @@ gulp.task('imagemin', async () =>
 //TEMPLATE COMPILER: This function will create the corresponding pages from all template files.
 gulp.task('template', async () =>
     gulp.src('src/content/*.html')
-        .pipe(template('src/templates/template_flex.html'))
+        .pipe(template('src/templates/template.html'))
         .pipe(gulp.dest('public'))
 );
 
@@ -55,7 +55,7 @@ gulp.task('default', gulp.series('message', 'imagemin', 'sass', 'scripts', 'temp
 
 //OR
 
-//Runn all tasks automaticvally by Watching for changes in any of the files.
+//Runn all tasks automatically by Watching for changes in any of the files.
 gulp.task('watch', () => {
     gulp.watch('src/i/**', gulp.series('imagemin')),
     gulp.watch('src/sass/*.scss', gulp.series('sass')),
