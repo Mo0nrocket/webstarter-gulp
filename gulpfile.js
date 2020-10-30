@@ -1,10 +1,11 @@
 //Import all necessary packages
 const   gulp = require('gulp'),
-        template = require('gulp-template-html'),
-        sass = require('gulp-sass'),
-        uglify = require('gulp-uglify-es').default,
-        concat = require('gulp-concat'),
-        imagemin = require('gulp-imagemin');
+    template = require('gulp-template-html'),
+    sass = require('gulp-sass'),
+    uglify = require('gulp-uglify-es').default,
+    concat = require('gulp-concat'),
+    imagemin = require('gulp-imagemin'),
+    wrapper = require('gulp-wrapper');
 
 /*GULP TOP LEVEL FUNCTIONS EXPLAINED
     gulp.task = Define task
@@ -46,6 +47,9 @@ gulp.task('sass', () =>
 gulp.task('scripts', async () =>
     gulp.src('src/j/*.js')
         .pipe(concat('main.js'))
+        .pipe(wrapper({
+            header: '"use strict";'
+        }))
         .pipe(uglify())
         .pipe(gulp.dest('public/j'))
 );
@@ -58,8 +62,8 @@ gulp.task('default', gulp.series('message', 'imagemin', 'sass', 'scripts', 'temp
 //Runn all tasks automatically by Watching for changes in any of the files.
 gulp.task('watch', () => {
     gulp.watch('src/i/**', gulp.series('imagemin')),
-    gulp.watch('src/sass/*.scss', gulp.series('sass')),
-    gulp.watch('src/j/*.js', gulp.series('scripts')),
-    gulp.watch('src/templates/template.html', gulp.series('template')),
-    gulp.watch('src/content/*.html', gulp.series('template'));
+        gulp.watch('src/sass/*.scss', gulp.series('sass')),
+        gulp.watch('src/j/*.js', gulp.series('scripts')),
+        gulp.watch('src/templates/template.html', gulp.series('template')),
+        gulp.watch('src/content/*.html', gulp.series('template'));
 });

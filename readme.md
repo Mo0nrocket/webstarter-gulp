@@ -19,12 +19,13 @@ The project requires the use of `NodeJS` and `NPM` which is included in the `Nod
 * Clone the project from into your working directory: https://github.com/Mo0nrocket/webstarter-gulp.git
 * Install the rest of the `Gulp` plugins as dev dependencies using npm.
 ```sh
-npm i --save-dev gulp-imagemin
-npm i --save-dev gulp-uglify-es
-npm i --save-dev gulp-sass
-npm i --save-dev gulp-concat
-npm i --save-dev gulp-template-html
-npm i --save-dev bootstrap
+npm i --save-dev gulp-imagemin -- # To minify and compress all your images for production.
+npm i --save-dev gulp-uglify-es -- # To minify all your code and remove line spacings
+npm i --save-dev gulp-sass -- # To be able to use sass with Gulp
+npm i --save-dev gulp-concat -- # To concatenate multiple files into one. For example all .js files will we written to main.js together
+npm i --save-dev gulp-template-html -- # To build very basic web templating
+npm i --save-dev bootstrap -- # To use Bootstrap CSS if you want. This is imported into the main.sass file but can be commented if you choose not to use it. 
+npm i --save-dev gulp-wrapper -- # To prepent or append anything in any of your files. For example "use strict"; can be added to the top of your JavaScript file
 ```
 * All `Gulp` processes have already been cofigured `gulpfile.js`.
 * The folder structure is as follows: 
