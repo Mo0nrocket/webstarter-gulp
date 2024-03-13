@@ -1,6 +1,10 @@
+## Update: This project is depricated and no longer supported. 
+#### I built this project originally on Bitbucket before libraries like React started gaining traction. You are of course free to use this webstarter but I highly suggest builting your wepsites and webapps using something like React, Angular, VueJS etc. This project is way to old-school for today's web landscape. 
+
 ## How to use this project
 ### Intro
-The idea behind this project is to build simple static websites quickly. Now you can setup a website in a few minutes rather than hours or days.\
+The idea behind this project is to build simple static websites quickly if you lack the knowledge to build apps using React, Angular or Vue. 
+It serves as a template to help you setup a website template in a few minutes rather than hours or days.
 This project uses `Gulp` for compiling all `HTML`, `CSS` and `JavaScript` files into static output files in the `public` folder.\
 The `public` folder can be simply uploaded to your hosting provider. 
 
