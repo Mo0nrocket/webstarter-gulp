@@ -1,5 +1,5 @@
 ## Update: This project is depricated and no longer supported. 
-#### I built this project originally on Bitbucket before libraries like React started gaining traction. You are of course free to use this webstarter but I highly suggest builting your wepsites and webapps using something like React, Angular, VueJS etc. This project is way to old-school for today's web landscape. 
+#### I built this project originally on Bitbucket before libraries like React started gaining traction. You are of course free to use this webstarter but I highly suggest building your wepsites and webapps using something like React, Angular, VueJS etc. This project is way to old-school for today's web landscape. 
 
 ## How to use this project
 ### Intro
